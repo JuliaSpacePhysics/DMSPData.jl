@@ -1,7 +1,23 @@
 name = "DMSPData"
 uuid = "d5333723-18be-412f-8474-053889153fe2"
-authors = ["Beforerr <zzj956959688@gmail.com> and contributors"]
 version = "1.0.0-DEV"
+authors = ["Beforerr <zzj956959688@gmail.com> and contributors"]
+
+[workspace]
+projects = ["docs", "test"]
+
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+DimensionalData = "0703355e-b756-11e9-17c0-8b28908087d0"
+DiskArrays = "3c3547ce-8d99-4f5e-a174-61eb10b00ae3"
+FieldViews = "ff5a1669-b1f2-423e-bbd7-b7fa0f7e0224"
+GeoCotrans = "4624b3bc-fe35-44f8-bfa8-722ff9c0e307"
+HDF5 = "f67ccb44-e63f-5c2f-98bd-6dc0ccc4ba2f"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+Madrigal = "30ac0af5-7056-44d2-a45c-266d747295e6"
 
 [compat]
+FieldViews = "0.3"
+HDF5 = "0.17"
+JLD2 = "0.5.13, 0.6"
 julia = "1.10"
