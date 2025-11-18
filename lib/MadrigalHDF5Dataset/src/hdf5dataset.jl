@@ -82,14 +82,13 @@ end
 Return all variable/group names. For datasets with Array Layout, returns parameter names.
 """
 function Base.keys(ds::HDF5Dataset)
-    if has_array_layout(ds)
+    return if has_array_layout(ds)
         params_1d = params_keys(ds, 1)
         params_2d = params_keys(ds, 2)
-        return vcat(params_1d, params_2d)
-    elseif has_table_layout(ds)
-        return keys(ds.file["Data/Table Layout"])
+        vcat(params_1d, params_2d)
     else
-        return keys(ds.file)
+        params = data_params(ds)
+        map(p -> lowercase(p.mnemonic), params)
     end
 end
 
@@ -151,6 +150,11 @@ function array_layout_getindex(ds::HDF5Dataset, name)
         ds.file[name]
     end
     return dset isa HDF5.Dataset ? HDF5Variable(read(dset), name, ds) : dset
+end
+
+function table_layout_getindex(ds::HDF5Dataset, name)
+    fv = FieldViewable(read(ds.file["Data"]["Table Layout"]))
+    getproperty(fv, Symbol(name))
 end
 
 function dim(ds::HDF5Dataset, i)

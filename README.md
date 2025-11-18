@@ -15,6 +15,8 @@ Access and process [Defense Meteorological Satellite Program](https://www.wikipe
 - Data Access
     - [x] [SSJ/4][ssj4ncei] - Special Sensor J/4 - Precipitating Ion and Electron (30ev - 30 KeV) Monitor ([Boston College, ISR](https://dmsp.bc.edu/html2/dmspssj4.html))
     - [ ] SSIE, SSIES, SSIES2, SSIES3 - Thermal Plasma Monitor (Boston College, ISR & Univ of Texas at Dallas)
+        - [x] Madrigal S1 (scalar 1 second cadence) : electron density and ion velocity
+        - [x] Madrigal S4 (scalar 4 second cadence) : ion and electron temperature, electric potential, composition
     - [ ] SSM - Vector Fluxgate Magnetometer (Boston College, ISR & NASA Goddard Spaceflight Center)
     - [ ] SSULI - Limb Scanning Ultraviolet Imager/Spectrometer ( Naval Research Lab., Thermospheric and Ionospheric Physics )
     - [ ] SSUSI - Nadir Scanning Ultraviolet Imager/Spectrometer & Photometer (Johns Hopkins Univ, Applied Physics Lab.)

@@ -22,10 +22,15 @@ using DMSPData
 
 ## Madrigal
 
-```@example madrigal
+```@example quicklook
 using DMSPData.Madrigal
+using Dates
 
-get_experiments(8100)
+t0 = DateTime("2010-01-10T00:04")
+t1 = DateTime("2010-01-10T00:35")
+
+get_experiments(8100, t0, t1)
+get_instrument_files(8100, t0, t1)
 ```
 
 ## Quicklook
@@ -38,12 +43,14 @@ Here we reproduce the figure 3 in [F16 10 January 2010 first auroral crossing of
 
 ```@example quicklook
 using DMSPData
-using DMSPData.DimensionalData
-using Dates
+using DimensionalData
 
-t0 = DateTime("2010-01-10T00:04")
-t1 = DateTime("2010-01-10T00:35")
 ssj_ds = SSJ_Dataset(16, t0, t1)
+```
+
+```@example quicklook
+s1_ds = S1_Dataset(16, t0, t1)
+s4_ds = S4_Dataset(16, t0, t1)
 ```
 
 ```@example quicklook
