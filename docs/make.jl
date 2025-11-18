@@ -10,6 +10,7 @@ makedocs(;
     format=Documenter.HTML(;
         canonical="https://JuliaSpacePhysics.github.io/DMSPData.jl",
     ),
+    warnonly = Documenter.except(:doctest, :example_block),
     pages=[
         "Home" => "index.md",
     ],

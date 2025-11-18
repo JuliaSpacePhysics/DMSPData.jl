@@ -1,5 +1,6 @@
 module MadrigalHDF5Dataset
 using HDF5
+using FieldViews: FieldViewable
 
 export HDF5Dataset, MFDataset
 
