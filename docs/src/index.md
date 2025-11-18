@@ -54,7 +54,7 @@ s4_ds = S4_Dataset(16, t0, t1)
 ```
 
 ```@example quicklook
-using CairoMakie
+using CairoMakie, SpacePhysicsMakie
 
 vars = ("el_d_ener", "el_i_ener", "el_m_ener", "ion_d_ener", "ion_i_ener", "ion_m_ener", "mlat")
 ds = DimStack(ssj_ds, vars; data_params = DMSPData.ssj_metadata_patch)[Ti(t0..t1)]
