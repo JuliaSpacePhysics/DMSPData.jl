@@ -33,7 +33,7 @@ has_table_layout(f::HDF5.File) = haskey(f, "Data/Table Layout")
 traits(ds::HDF5Dataset) = typeof(ds).parameters[2]
 has_array_layout(ds) = traits(ds)[1]
 has_table_layout(ds) = traits(ds)[2]
-
+dims(ds::HDF5Dataset) = ds.dims
 
 """
     HDF5Dataset(f::Function, path, mode="r")
@@ -57,13 +57,13 @@ function HDF5Dataset(f::Function, path, mode = "r")
 end
 
 # File access interface
-Base.close(ds::HDF5Dataset) = isopen(ds.file) && close(ds.file)
-Base.isopen(ds::HDF5Dataset) = isopen(ds.file)
+Base.close(ds::AbstractDataset) = isopen(file(ds)) && close(file(ds))
+Base.isopen(ds::AbstractDataset) = isopen(file(ds))
 
 # Remove "Data Parameters" from the list of parameters
 
 function params(ds, i)
-    layout = ds.file["Data"]["Array Layout"]
+    layout = file(ds)["Data"]["Array Layout"]
     return if i == 1
         layout["1D Parameters"]
     elseif i == 2
@@ -77,11 +77,11 @@ function params_keys(ds, i)
 end
 
 """
-    keys(ds::HDF5Dataset)
+    keys(ds::AbstractDataset)
 
 Return all variable/group names. For datasets with Array Layout, returns parameter names.
 """
-function Base.keys(ds::HDF5Dataset)
+function Base.keys(ds::AbstractDataset)
     return if has_array_layout(ds)
         params_1d = params_keys(ds, 1)
         params_2d = params_keys(ds, 2)
@@ -93,11 +93,11 @@ function Base.keys(ds::HDF5Dataset)
 end
 
 """
-    haskey(ds::HDF5Dataset, name)
+    haskey(ds::AbstractDataset, name)
 
 Check if variable or group exists. For Array Layout datasets, checks in 1D/2D Parameters.
 """
-function Base.haskey(ds::HDF5Dataset, name::AbstractString)
+function Base.haskey(ds::AbstractDataset, name::AbstractString)
     return if has_array_layout(ds)
         haskey(params(ds, 1), name) || haskey(params(ds, 2), name)
     else
@@ -106,10 +106,11 @@ function Base.haskey(ds::HDF5Dataset, name::AbstractString)
 end
 
 file(ds::HDF5Dataset) = ds.file
-data_params(ds) = read(file(ds)["Metadata"]["Data Parameters"])
-exp_params(ds) = read(file(ds)["Metadata"]["Experiment Parameters"])
+metadata(ds) = file(ds)["Metadata"]
+data_params(ds) = read(metadata(ds)["Data Parameters"])
+exp_params(ds) = read(metadata(ds)["Experiment Parameters"])
 function exp_notes(ds)
-    notes = read(file(ds)["Metadata"]["Experiment Notes"])
+    notes = read(metadata(ds)["Experiment Notes"])
     return join(Base.Iterators.map(n -> n.var"File Notes", notes), "\n")
 end
 
@@ -138,7 +139,7 @@ Base.getindex(ds::HDF5Dataset, name::Symbol) = ds[String(name)]
     return getfield(ds, name)
 end
 
-function array_layout_getindex(ds::HDF5Dataset, name)
+function array_layout_getindex(ds::HDF5Dataset, name, args...)
     # Try 1D parameters first, then 2D parameters
     params_1d = params(ds, 1)
     params_2d = params(ds, 2)
@@ -149,21 +150,23 @@ function array_layout_getindex(ds::HDF5Dataset, name)
     else
         ds.file[name]
     end
-    return dset isa HDF5.Dataset ? HDF5Variable(read(dset), name, ds) : dset
+    return dset isa HDF5.Dataset ? HDF5Variable(_read(dset, args...), name, ds) : dset
 end
+
+_read(dset) = read(dset)
 
 function table_layout_getindex(ds::HDF5Dataset, name)
     fv = FieldViewable(read(ds.file["Data"]["Table Layout"]))
-    getproperty(fv, Symbol(name))
+    return getproperty(fv, Symbol(name))
 end
 
-function dim(ds::HDF5Dataset, i)
+@inline function dim(ds::HDF5Dataset, i)
     name = dimname(ds.dims, i)
     data = read(ds.file["Data"]["Array Layout"][name])
-    return HDF5Variable(data, name, ds)
+    return HDF5Variable(i == 1 ? _times(data) : data, name, ds)
 end
 
-path(ds::HDF5Dataset) = ds.file.filename
+path(ds) = file(ds).filename
 
 function Base.show(io::IO, ::MIME"text/plain", ds::T) where {T <: AbstractDataset}
     println(io, nameof(T))
