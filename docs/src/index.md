@@ -75,7 +75,23 @@ end
 
 > F16 10 January 2010 first auroral crossing of the day. (a) Background adjusted electron differential energy flux (jE) (eV/cm2 sr ΔeV s), (b) integrated electron energy flux (JE) (eV/cm2 sr s), (c) average electron energy (Eavg) (eV), (d–f) same quantities for ions, and (g) AACGM latitude and MLT (right y axis).  - [redmonNewDMSPDatabase2017](@citet)
 
-Experiment Notes
+## Calculations
+
+```@example quicklook
+# Computing magnetic field coordinates
+# L-shell, MLT, Blocal, Bmin, Lstar, and XJ
+# See https://juliaspacephysics.github.io/IRBEM.jl/dev/#Computing-magnetic-field-coordinates
+using IRBEM
+
+gdalt = DimArray(ssj_ds["gdalt"])
+gdlat = DimArray(ssj_ds["gdlat"])
+glon = DimArray(ssj_ds["glon"])
+times = gdalt.dims[1]
+make_lstar.(times, GDZ.(gdalt, gdlat, glon), ((; Kp = 40.0),); kext = "T89")
+```
+
+
+## Experiment Notes
 
 ```@example quicklook
 ssj_ds.notes
@@ -112,7 +128,7 @@ Pkg.status() # hide
 ```@example
 using InteractiveUtils # hide
 versioninfo() # hide
-```
+`· 
 
 ```@raw html
 </details>
