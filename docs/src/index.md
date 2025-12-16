@@ -4,6 +4,8 @@ CurrentModule = DMSPData
 
 # DMSPData.jl
 
+Access and process [Defense Meteorological Satellite Program](https://www.wikipedia.org/wiki/Defense_Meteorological_Satellite_Program) (DMSP) data.
+
 ```@index
 ```
 
@@ -22,6 +24,8 @@ using DMSPData
 
 ## Madrigal
 
+8100 is the instrument ID for DMSP in Madrigal database.
+
 ```@example quicklook
 using DMSPData.Madrigal
 using Dates
@@ -29,8 +33,9 @@ using Dates
 t0 = DateTime("2010-01-10T00:04")
 t1 = DateTime("2010-01-10T00:35")
 
-get_experiments(8100, t0, t1)
-get_instrument_files(8100, t0, t1)
+kinst = 8100
+get_experiments(kinst, t0, t1)
+get_instrument_files(kinst, t0, t1)
 ```
 
 ## Quicklook
@@ -80,4 +85,32 @@ Modules = [DMSPData]
 ```
 
 ```@bibliography
+```
+
+## Reproducibility
+
+```@raw html
+<details><summary>The documentation of this package was built using these direct dependencies,</summary>
+```
+
+```@example
+using Pkg # hide
+Pkg.status() # hide
+```
+
+```@raw html
+</details>
+```
+
+```@raw html
+<details><summary>and using this machine and Julia version.</summary>
+```
+
+```@example
+using InteractiveUtils # hide
+versioninfo() # hide
+```
+
+```@raw html
+</details>
 ```
