@@ -1,6 +1,6 @@
 name = "DMSPData"
 uuid = "d5333723-18be-412f-8474-053889153fe2"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Beforerr <zzj956959688@gmail.com> and contributors"]
 
 [workspace]
