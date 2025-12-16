@@ -17,6 +17,11 @@ function SSJ_dataset_files(id, t0, t1)
     return unique!(sort!(files))
 end
 
+"""
+Dataset for Special Sensor J/4 - Precipitating Ion and Electron (30ev - 30 KeV) Monitor
+
+See also [Boston College, ISR](https://dmsp.bc.edu/html2/dmspssj4.html)
+"""
 function SSJ_Dataset(id, t0, t1; verbose = false)
     files = SSJ_dataset_files(id, t0, t1)
     verbose && @info "Found $(length(files)) files" files
@@ -40,6 +45,9 @@ function S1_data_files(id, t0, t1)
     return unique!(sort!(files))
 end
 
+"""
+Dataset for electron density and ion velocity with 1 second cadence
+"""
 function S1_Dataset(id, t0, t1; verbose = false)
     files = S1_data_files(id, t0, t1)
     verbose && @info "Found $(length(files)) files" files
@@ -52,6 +60,9 @@ function S4_data_files(id, t0, t1)
     return unique!(sort!(files))
 end
 
+"""
+Dataset for ion and electron temperature, electric potential, composition with 4 second cadence
+"""
 function S4_Dataset(id, t0, t1; verbose = false)
     files = S4_data_files(id, t0, t1)
     verbose && @info "Found $(length(files)) files" files

@@ -21,8 +21,14 @@ Pkg.add("DMSPData")
 
 ## Usage
 
-```@example usage
+```@example quicklook
 using DMSPData
+using Dates
+
+t0 = DateTime("2010-01-10T00:04")
+t1 = DateTime("2010-01-10T00:35")
+
+ssj_ds = SSJ_Dataset(16, t0, t1)
 ```
 
 ## Madrigal
@@ -31,10 +37,7 @@ using DMSPData
 
 ```@example quicklook
 using DMSPData.Madrigal
-using Dates
 
-t0 = DateTime("2010-01-10T00:04")
-t1 = DateTime("2010-01-10T00:35")
 
 kinst = 8100
 get_experiments(kinst, t0, t1)
@@ -46,18 +49,12 @@ get_instrument_files(kinst, t0, t1)
 Here we reproduce the figure 3 in [F16 10 January 2010 first auroral crossing of the day](https://doi.org/10.1029/2009JA014362) ([redmonNewDMSPDatabase2017](@citet)).
 
 ```@example quicklook
-using DMSPData
-using DimensionalData
-
-ssj_ds = SSJ_Dataset(16, t0, t1)
-```
-
-```@example quicklook
 s1_ds = S1_Dataset(16, t0, t1)
 s4_ds = S4_Dataset(16, t0, t1)
 ```
 
 ```@example quicklook
+using DimensionalData
 using CairoMakie, SpacePhysicsMakie
 
 vars = ("el_d_ener", "el_i_ener", "el_m_ener", "ion_d_ener", "ion_i_ener", "ion_m_ener", "mlat")
@@ -90,18 +87,19 @@ times = gdalt.dims[1]
 make_lstar.(times, GDZ.(gdalt, gdlat, glon), ((; Kp = 40.0),); kext = "T89")
 ```
 
-
-## Experiment Notes
-
-```@example quicklook
-ssj_ds.notes
-```
-
 ## API
 
 ```@autodocs
 Modules = [DMSPData]
 ```
+
+### Experiment Notes
+
+```@example quicklook
+ssj_ds.notes
+```
+
+## Bibliography
 
 ```@bibliography
 ```
@@ -128,7 +126,7 @@ Pkg.status() # hide
 ```@example
 using InteractiveUtils # hide
 versioninfo() # hide
-`· 
+```
 
 ```@raw html
 </details>
