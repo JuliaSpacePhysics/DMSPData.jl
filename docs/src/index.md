@@ -4,6 +4,9 @@ CurrentModule = DMSPData
 
 # DMSPData.jl
 
+[![DOI](https://zenodo.org/badge/1096784690.svg)](https://doi.org/10.5281/zenodo.17946429)
+[![version](https://juliahub.com/docs/General/DMSPData/stable/version.svg)](https://juliahub.com/ui/Packages/General/DMSPData)
+
 Access and process [Defense Meteorological Satellite Program](https://www.wikipedia.org/wiki/Defense_Meteorological_Satellite_Program) (DMSP) data.
 
 ```@index
