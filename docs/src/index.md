@@ -33,7 +33,7 @@ ssj_ds = SSJ_Dataset(16, t0, t1)
 
 ## Madrigal
 
-8100 is the instrument ID for DMSP in Madrigal database.
+8100 is the instrument ID for DMSP in [Madrigal database](https://cedar.openmadrigal.org/instMetadata).
 
 ```@example quicklook
 using DMSPData.Madrigal
