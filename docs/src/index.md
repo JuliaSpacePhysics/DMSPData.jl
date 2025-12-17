@@ -19,24 +19,17 @@ using Pkg
 Pkg.add("DMSPData")
 ```
 
-## Usage
-
-```@example quicklook
-using DMSPData
-using Dates
-
-t0 = DateTime("2010-01-10T00:04")
-t1 = DateTime("2010-01-10T00:35")
-
-ssj_ds = SSJ_Dataset(16, t0, t1)
-```
-
 ## Madrigal
 
 8100 is the instrument ID for DMSP in [Madrigal database](https://cedar.openmadrigal.org/instMetadata).
 
 ```@example quicklook
+using DMSPData
 using DMSPData.Madrigal
+using Dates
+
+t0 = DateTime("2010-01-10T00:04")
+t1 = DateTime("2010-01-10T00:35")
 
 
 kinst = 8100
@@ -51,6 +44,7 @@ Here we reproduce the figure 3 in [F16 10 January 2010 first auroral crossing of
 ```@example quicklook
 s1_ds = S1_Dataset(16, t0, t1)
 s4_ds = S4_Dataset(16, t0, t1)
+ssj_ds = SSJ_Dataset(16, t0, t1)
 ```
 
 ```@example quicklook
