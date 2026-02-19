@@ -16,7 +16,7 @@ MappedArrays = "dbb5928d-eab1-5f90-85c2-b9b0edb7c900"
 
 [compat]
 Dates = "1"
-DimensionalData = "0.29"
+DimensionalData = "0.29, 0.30"
 FieldViews = "0.3"
 HDF5 = "0.17"
 Madrigal = "0.1.2"
