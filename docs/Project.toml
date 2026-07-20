@@ -9,3 +9,6 @@ SpacePhysicsMakie = "0c28ffd8-ae30-4a56-b2e4-f8332c621ad2"
 
 [sources]
 DMSPData = {path = ".."}
+
+[compat]
+SpacePhysicsMakie = "0.2.7"
