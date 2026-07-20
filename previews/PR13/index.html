@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · DMSPData.jl</title><meta name="title" content="Home · DMSPData.jl"/><meta property="og:title" content="Home · DMSPData.jl"/><meta property="twitter:title" content="Home · DMSPData.jl"/><meta name="description" content="Documentation for DMSPData.jl."/><meta property="og:description" content="Documentation for DMSPData.jl."/><meta property="twitter:description" content="Documentation for DMSPData.jl."/><meta property="og:url" content="https://JuliaSpacePhysics.github.io/DMSPData.jl/"/><meta property="twitter:url" content="https://JuliaSpacePhysics.github.io/DMSPData.jl/"/><link rel="canonical" href="https://JuliaSpacePhysics.github.io/DMSPData.jl/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>DMSPData.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a><ul class="internal"><li><a class="tocitem" href="#Installation"><span>Installation</span></a></li><li><a class="tocitem" href="#Madrigal"><span>Madrigal</span></a></li><li><a class="tocitem" href="#Quicklook"><span>Quicklook</span></a></li><li><a class="tocitem" href="#Calculations"><span>Calculations</span></a></li><li><a class="tocitem" href="#API"><span>API</span></a></li><li><a class="tocitem" href="#Bibliography"><span>Bibliography</span></a></li><li><a class="tocitem" href="#Reproducibility"><span>Reproducibility</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaSpacePhysics/DMSPData.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaSpacePhysics/DMSPData.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="DMSPData.jl"><a class="docs-heading-anchor" href="#DMSPData.jl">DMSPData.jl</a><a id="DMSPData.jl-1"></a><a class="docs-heading-anchor-permalink" href="#DMSPData.jl" title="Permalink"></a></h1><p><a href="https://doi.org/10.5281/zenodo.17946429"><img src="https://zenodo.org/badge/1096784690.svg" alt="DOI"/></a> <a href="https://juliahub.com/ui/Packages/General/DMSPData"><img src="https://juliahub.com/docs/General/DMSPData/stable/version.svg" alt="version"/></a></p><p>Access and process <a href="https://www.wikipedia.org/wiki/Defense_Meteorological_Satellite_Program">Defense Meteorological Satellite Program</a> (DMSP) data.</p><ul><li><a href="#DMSPData.S1_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.S1_Dataset</code></a></li><li><a href="#DMSPData.S4_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.S4_Dataset</code></a></li><li><a href="#DMSPData.SSJ_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.SSJ_Dataset</code></a></li></ul><h2 id="Installation"><a class="docs-heading-anchor" href="#Installation">Installation</a><a id="Installation-1"></a><a class="docs-heading-anchor-permalink" href="#Installation" title="Permalink"></a></h2><pre><code class="language-julia hljs">using Pkg
+Pkg.add(&quot;DMSPData&quot;)</code></pre><h2 id="Madrigal"><a class="docs-heading-anchor" href="#Madrigal">Madrigal</a><a id="Madrigal-1"></a><a class="docs-heading-anchor-permalink" href="#Madrigal" title="Permalink"></a></h2><p>8100 is the instrument ID for DMSP in <a href="https://cedar.openmadrigal.org/instMetadata">Madrigal database</a>.</p><pre><code class="language-julia hljs">using DMSPData
+using DMSPData.Madrigal
+using Dates
+
+t0 = DateTime(&quot;2010-01-10T00:04&quot;)
+t1 = DateTime(&quot;2010-01-10T00:35&quot;)
+
+
+kinst = 8100
+get_experiments(kinst, t0, t1)
+get_instrument_files(kinst, t0, t1)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">19-element view(::CSV.File, [160543, 160544, 350086, 350087, 350088, 350089, 350090, 350091, 350092, 350093, 350094, 350095, 350096, 350097, 350098, 350099, 350100, 350101, 350102]) with eltype CSV.Row:
+ (name = &quot;dms_ut_20100110_16.002.hdf5&quot;, id = 100015626, kindat = 10246, category = 1, status = false, access = true, permission = true, mod_date = Dates.DateTime(&quot;2024-10-16T00:00:00&quot;), mod_time = 164438)
+ (name = &quot;dms_ut_20100110_18.002.hdf5&quot;, id = 100015626, kindat = 10248, category = 1, status = false, access = true, permission = true, mod_date = Dates.DateTime(&quot;2024-10-16T00:00:00&quot;), mod_time = 164438)
+ (name = &quot;dms_20100110_15s1.001.hdf5&quot;, id = 100032230, kindat = 10115, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 121355)
+ (name = &quot;dms_20100110_16s1.001.hdf5&quot;, id = 100032230, kindat = 10116, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 125847)
+ (name = &quot;dms_20100110_17s1.001.hdf5&quot;, id = 100032230, kindat = 10117, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 134409)
+ (name = &quot;dms_20100110_18s1.001.hdf5&quot;, id = 100032230, kindat = 10118, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 141906)
+ (name = &quot;dms_20100110_15s4.001.hdf5&quot;, id = 100032230, kindat = 10145, category = 3, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 143126)
+ (name = &quot;dms_20100110_16s4.001.hdf5&quot;, id = 100032230, kindat = 10146, category = 3, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 144149)
+ (name = &quot;dms_20100110_17s4.001.hdf5&quot;, id = 100032230, kindat = 10147, category = 3, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 145305)
+ (name = &quot;dms_20100110_18s4.001.hdf5&quot;, id = 100032230, kindat = 10148, category = 3, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 150157)
+ (name = &quot;dms_20100110_16e.001.hdf5&quot;, id = 100032230, kindat = 10216, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 155845)
+ (name = &quot;dms_20100110_17e.001.hdf5&quot;, id = 100032230, kindat = 10217, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 165642)
+ (name = &quot;dms_20100110_18e.001.hdf5&quot;, id = 100032230, kindat = 10218, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2016-09-07T00:00:00&quot;), mod_time = 175327)
+ (name = &quot;dms_ut_20100110_15.001.hdf5&quot;, id = 100032230, kindat = 10245, category = 3, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-03-26T00:00:00&quot;), mod_time = 135845)
+ (name = &quot;dms_ut_20100110_15.002.hdf5&quot;, id = 100032230, kindat = 10245, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-06-05T00:00:00&quot;), mod_time = 133400)
+ (name = &quot;dms_20100210_17s4.002.hdf5&quot;, id = 100032230, kindat = 10147, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-11-01T00:00:00&quot;), mod_time = 153409)
+ (name = &quot;dms_20100210_15s4.002.hdf5&quot;, id = 100032230, kindat = 10145, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-11-01T00:00:00&quot;), mod_time = 153410)
+ (name = &quot;dms_20100210_18s4.002.hdf5&quot;, id = 100032230, kindat = 10148, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-11-01T00:00:00&quot;), mod_time = 153411)
+ (name = &quot;dms_20100210_16s4.002.hdf5&quot;, id = 100032230, kindat = 10146, category = 1, status = false, access = true, permission = false, mod_date = Dates.DateTime(&quot;2018-11-01T00:00:00&quot;), mod_time = 153411)</code></pre><h2 id="Quicklook"><a class="docs-heading-anchor" href="#Quicklook">Quicklook</a><a id="Quicklook-1"></a><a class="docs-heading-anchor-permalink" href="#Quicklook" title="Permalink"></a></h2><p>Here we reproduce the figure 3 in <a href="https://doi.org/10.1029/2009JA014362">F16 10 January 2010 first auroral crossing of the day</a> (<a href="#redmonNewDMSPDatabase2017">Redmon <em>et al.</em> [1]</a>).</p><pre><code class="language-julia hljs">s1_ds = S1_Dataset(16, t0, t1)
+s4_ds = S4_Dataset(16, t0, t1)
+ssj_ds = SSJ_Dataset(16, t0, t1)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">MFDataset
+  Path: [&quot;/tmp/jl_O4XL9Z/dms_20100110_16e.001.hdf5&quot;]
+  Variables (18):
+    el_i_ener
+    el_i_flux
+    el_m_ener
+    gdalt
+    gdlat
+    glon
+    ion_i_ener
+    ion_i_flux
+    ion_m_ener
+    mlat
+    ...
+</code></pre><pre><code class="language-julia hljs">using DimensionalData
+using CairoMakie, SpacePhysicsMakie
+
+vars = (&quot;el_d_ener&quot;, &quot;el_i_ener&quot;, &quot;el_m_ener&quot;, &quot;ion_d_ener&quot;, &quot;ion_i_ener&quot;, &quot;ion_m_ener&quot;, &quot;mlat&quot;)
+ds = DimStack(ssj_ds, vars; data_params = DMSPData.ssj_metadata_patch)
+for A in (ds.el_d_ener, ds.ion_d_ener)
+    A[A .&lt; 1e3] .= NaN
+end
+let colormap = :turbo, f = Figure(; size = (1200, 1000))
+    faxs = tplot(f, ds; colormap)
+    ylims!(faxs.axes[2], 1e9, 1e13)
+    ylims!(faxs.axes[5], 1e9, 1e13)
+    f
+end</code></pre><img src="index-8b1a8951.png" alt="Example block output"/><blockquote><p>F16 10 January 2010 first auroral crossing of the day. (a) Background adjusted electron differential energy flux (jE) (eV/cm2 sr ΔeV s), (b) integrated electron energy flux (JE) (eV/cm2 sr s), (c) average electron energy (Eavg) (eV), (d–f) same quantities for ions, and (g) AACGM latitude and MLT (right y axis).  - <a href="#redmonNewDMSPDatabase2017">Redmon <em>et al.</em> [1]</a></p></blockquote><h2 id="Calculations"><a class="docs-heading-anchor" href="#Calculations">Calculations</a><a id="Calculations-1"></a><a class="docs-heading-anchor-permalink" href="#Calculations" title="Permalink"></a></h2><pre><code class="language-julia hljs"># Computing magnetic field coordinates
+# L-shell, MLT, Blocal, Bmin, Lstar, and XJ
+# See https://juliaspacephysics.github.io/IRBEM.jl/dev/#Computing-magnetic-field-coordinates
+using IRBEM
+
+gdalt = DimArray(ssj_ds[&quot;gdalt&quot;])
+gdlat = DimArray(ssj_ds[&quot;gdlat&quot;])
+glon = DimArray(ssj_ds[&quot;glon&quot;])
+times = gdalt.dims[1]
+make_lstar.(times, GDZ.(gdalt, gdlat, glon), ((; Kp = 40.0),); kext = &quot;T89&quot;)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi"><span class="sgr90">┌ </span><span class="sgr38_5" style="color:#ff875f">1861-element </span>DimArray{@NamedTuple{Lm::Float64, Lstar::Float64, Blocal::Float64, Bmin::Float64, XJ::Float64, MLT::Float64}, 1}<span class="sgr90"> ┐</span>
+<span class="sgr90">├──────────────────────────────────────────────────────────────────────── dims ┤</span>
+  <span class="sgr38_5" style="color:#ff875f">↓ Ti</span> Sampled{Dates.DateTime} <span class="sgr38_5" style="color:#ff875f">[Dates.DateTime(&quot;2010-01-10T00:04:00&quot;), …, Dates.DateTime(&quot;2010-01-10T00:35:00&quot;)]</span> <span class="sgr38_5" style="color:#808080">ForwardOrdered</span> <span class="sgr38_5" style="color:#808080">Irregular</span> <span class="sgr38_5" style="color:#808080">Points</span>
+<span class="sgr90">└──────────────────────────────────────────────────────────────────────────────┘</span>
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:04:00</span>  …  (Lm = 1.83817, Lstar = -1.0e31, Blocal = 30117.3, Bmin = 4693.84, XJ = 2.0752, MLT = 18.4732)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:04:01</span>     (Lm = 1.84072, Lstar = -1.0e31, Blocal = 30142.4, Bmin = 4672.94, XJ = 2.08263, MLT = 18.4722)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:04:02</span>     (Lm = 1.84329, Lstar = -1.0e31, Blocal = 30167.5, Bmin = 4652.09, XJ = 2.09007, MLT = 18.4712)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:04:03</span>     (Lm = 1.84621, Lstar = -1.0e31, Blocal = 30192.6, Bmin = 4631.28, XJ = 2.09845, MLT = 18.4703)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:04:04</span>     (Lm = 1.849, Lstar = -1.0e31, Blocal = 30217.7, Bmin = 4610.52, XJ = 2.10647, MLT = 18.4693)
+ ⋮                    ⋱  
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:34:56</span>     (Lm = 1.71472, Lstar = -1.0e31, Blocal = 37126.2, Bmin = 5786.82, XJ = 1.93641, MLT = 7.35639)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:34:57</span>     (Lm = 1.71178, Lstar = -1.0e31, Blocal = 37108.7, Bmin = 5816.67, XJ = 1.92835, MLT = 7.35541)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:34:58</span>     (Lm = 1.70854, Lstar = -1.0e31, Blocal = 37091.3, Bmin = 5846.61, XJ = 1.9195, MLT = 7.35442)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:34:59</span>     (Lm = 1.70577, Lstar = -1.0e31, Blocal = 37073.8, Bmin = 5876.65, XJ = 1.91187, MLT = 7.35344)
+ <span class="sgr38_5" style="color:#ff875f">2010-01-10T00:35:00</span>  …  (Lm = 1.70299, Lstar = -1.0e31, Blocal = 37056.2, Bmin = 5906.78, XJ = 1.90423, MLT = 7.35246)</code></pre><h2 id="API"><a class="docs-heading-anchor" href="#API">API</a><a id="API-1"></a><a class="docs-heading-anchor-permalink" href="#API" title="Permalink"></a></h2><article><details class="docstring" open="true"><summary id="DMSPData.S1_Dataset-Tuple{Any, Any, Any}"><a class="docstring-binding" href="#DMSPData.S1_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.S1_Dataset</code></a> — <span class="docstring-category">Method</span></summary><section><div><p>Dataset for electron density and ion velocity with 1 second cadence</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaSpacePhysics/DMSPData.jl/blob/42ae3c4ae3796589c7f5ee9d922ead7dfe22396f/src/DMSPData.jl#L48-L50">source</a></section></details></article><article><details class="docstring" open="true"><summary id="DMSPData.S4_Dataset-Tuple{Any, Any, Any}"><a class="docstring-binding" href="#DMSPData.S4_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.S4_Dataset</code></a> — <span class="docstring-category">Method</span></summary><section><div><p>Dataset for ion and electron temperature, electric potential, composition with 4 second cadence</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaSpacePhysics/DMSPData.jl/blob/42ae3c4ae3796589c7f5ee9d922ead7dfe22396f/src/DMSPData.jl#L63-L65">source</a></section></details></article><article><details class="docstring" open="true"><summary id="DMSPData.SSJ_Dataset-Tuple{Any, Any, Any}"><a class="docstring-binding" href="#DMSPData.SSJ_Dataset-Tuple{Any, Any, Any}"><code>DMSPData.SSJ_Dataset</code></a> — <span class="docstring-category">Method</span></summary><section><div><p>Dataset for Special Sensor J/4 - Precipitating Ion and Electron (30ev - 30 KeV) Monitor</p><p>See also <a href="https://dmsp.bc.edu/html2/dmspssj4.html">Boston College, ISR</a></p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaSpacePhysics/DMSPData.jl/blob/42ae3c4ae3796589c7f5ee9d922ead7dfe22396f/src/DMSPData.jl#L20-L24">source</a></section></details></article><h3 id="Experiment-Notes"><a class="docs-heading-anchor" href="#Experiment-Notes">Experiment Notes</a><a id="Experiment-Notes-1"></a><a class="docs-heading-anchor-permalink" href="#Experiment-Notes" title="Permalink"></a></h3><pre><code class="language-julia hljs">ssj_ds.notes</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Catalog information from record 0:
+
+KRECC       2001 Catalogue Record, Version 1
+KINSTE     8100 Defense Meteorological Satellite Program
+MODEXP    10216
+IBYRE       2010 Beginning year
+IBDTE        110 Beginning month and day
+IBHME          0 Beginning UT hour and minute
+IBCSE          0 Beginning centisecond
+IEYRE       2010 Ending year
+IEDTE        111 Ending month and day
+IEHME          0 Ending UT hour and minute
+IECSE          0 Ending centisecond
+CPI      Patricia Doherty
+IBYRT               2010 Beginning year
+IBDTT               0110 Beginning month and day
+IBHMT               0000 Beginning UT hour and minute
+IBCST               0000 Beginning centisecond
+IEYRT               2010 Ending year
+IEDTT               0111 Ending month and day
+IEHMT               0000 Ending UT hour and minute
+IECST               0000 Ending centisecond
+
+Header information from record 1:
+
+KRECH               3002 Header Record, Version 3
+KINST     8100 Defense Meteorological Satellite Program
+KINDAT    10216 F16 flux/energy values
+CKINDAT This file contains all flux/energy parameters measured on the DMSP
+CKINDAT spacecraft.
+CKINDAT This file is all NASA level 1 data - data quality is not included.
+CKINDAT Background counts have been
+CKINDAT subtracted from these values according to the following algorithm:
+CKINDAT Looks for a nearly constant
+CKINDAT count rate in the higher energy channels of the electron or ion
+CKINDAT spectrum. If such a nearly constant
+CKINDAT count rate is found, then that rate plus one sigma of the rate is
+CKINDAT subtracted from all counts in the
+CKINDAT given spectrum. That background is then cached and used for future
+CKINDAT measurements that do not fit that
+CKINDAT criteria. If a cached background level is used and too many values
+CKINDAT would be negative, the background
+CKINDAT is reduced by the average negative value. In any case, counts are
+CKINDAT never set below zero.
+IBYRT               2010 Beginning year
+IBDTT                110 Beginning month and day
+IBHMT                  0 Beginning UT hour and minute
+IBCST                  0 Beginning centisecond
+IEYRT               2010 Ending year
+IEDTT                111 Ending month and day
+IEHMT                  0 Ending UT hour and minute
+IECST                  0 Ending centisecond
+C 1D Parameters:
+KODS(0)           54 Magnetic local time                              hour
+KODS(1)          110 Geodetic altitude (height)                       km
+KODS(2)          160 Geodetic latitude of measurement                 deg
+KODS(3)          170 Geographic longitude of measurement              deg
+KODS(4)          228 Magnetic latitude                                deg
+KODS(5)          248 Magnetic Longitude                               deg
+KODS(6)         2172 Integrated elect num flux (1/cm2s*ster)          numFlux
+KODS(7)         2174 Integrated ion num flux (1/cm2s*ster)            numFlux
+KODS(8)         2176 Integr elect energy flux (eV/cm2s*ster)          enFlux
+KODS(9)         2178 Integr ion energy flux (eV/cm2s*ster)            enFlux
+KODS(10)        2182 Mean electron energy                             eV
+KODS(11)        2184 Mean ion energy                                  eV
+KODS(12)        4200 Satellite id                                     N/A
+C 2D Parameters:
+KODM(0)         2160 Diff electron num flux (1/cm2eVs*ster)           numFlux
+KODM(1)         2162 Diff electron energy flux (1/cm2s*ster)          enFlux
+KODM(2)         2164 Diff ion num flux (1/cm2eVs*ster)                numFlux
+KODM(3)         2166 Diff ion energy flux (1/cm2s*ster)               enFlux
+KODM(4)         2168 Channel central energy                           eV
+KODM(5)         2171 Channel spacing energy                           eV
+CANALYST Kevin Martin
+CANDATE  Tue Jun 26 19:28:30 2018 UT
+IBYRT               2010 Beginning year
+IBDTT               0110 Beginning month and day
+IBHMT               0000 Beginning UT hour and minute
+IBCST               0000 Beginning centisecond
+IEYRT               2010 Ending year
+IEDTT               0111 Ending month and day
+IEHMT               0000 Ending UT hour and minute
+IECST               0000 Ending centisecond</code></pre><h2 id="Bibliography"><a class="docs-heading-anchor" href="#Bibliography">Bibliography</a><a id="Bibliography-1"></a><a class="docs-heading-anchor-permalink" href="#Bibliography" title="Permalink"></a></h2><div class="citation canonical"><dl><dt>[1]</dt><dd><div id="redmonNewDMSPDatabase2017">R. J. Redmon, W. F. Denig, L. M. Kilcommons and D. J. Knipp. <em>New DMSP Database of Precipitating Auroral Electrons and Ions</em>. <a href="https://doi.org/10.1002/2016JA023339">Journal of Geophysical Research: Space Physics <strong>122</strong>, 9056–9067</a> (2017).</div></dd></dl></div><h2 id="Reproducibility"><a class="docs-heading-anchor" href="#Reproducibility">Reproducibility</a><a id="Reproducibility-1"></a><a class="docs-heading-anchor-permalink" href="#Reproducibility" title="Permalink"></a></h2><details><summary>The documentation of this package was built using these direct dependencies,</summary><pre class="documenter-example-output"><code class="nohighlight hljs ansi"><span class="sgr32"><span class="sgr1">Status</span></span> `~/work/DMSPData.jl/DMSPData.jl/docs/Project.toml`
+  <span class="sgr90">[13f3f980] </span>CairoMakie v0.15.13
+  <span class="sgr90">[d5333723] </span>DMSPData v0.1.1 `~/work/DMSPData.jl/DMSPData.jl`
+<span class="sgr33">⌅</span> <span class="sgr90">[0703355e] </span>DimensionalData v0.29.27
+  <span class="sgr90">[e30172f5] </span>Documenter v1.17.0
+  <span class="sgr90">[daee34ce] </span>DocumenterCitations v1.4.1
+  <span class="sgr90">[d0b46c7b] </span>IRBEM v0.1.7
+  <span class="sgr90">[0c28ffd8] </span>SpacePhysicsMakie v0.2.7
+<span class="sgr36"><span class="sgr1">Info</span></span> Packages marked with <span class="sgr33">⌅</span> have new versions available but compatibility constraints restrict them from upgrading. To see why use `status --outdated`</code></pre></details><details><summary>and using this machine and Julia version.</summary><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Julia Version 1.12.6
+Commit 15346901f00 (2026-04-09 19:20 UTC)
+Build Info:
+  Official https://julialang.org release
+Platform Info:
+  OS: Linux (x86_64-linux-gnu)
+  CPU: 4 × Intel(R) Xeon(R) 6973P-C
+  WORD_SIZE: 64
+  LLVM: libLLVM-18.1.7 (ORCJIT, graniterapids)
+  GC: Built with stock GC
+Threads: 1 default, 1 interactive, 1 GC (on 4 virtual cores)
+Environment:
+  JULIA_PKG_SERVER_REGISTRY_PREFERENCE = eager</code></pre></details></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Monday 20 July 2026 23:04">Monday 20 July 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
