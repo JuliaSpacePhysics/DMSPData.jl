@@ -105,9 +105,22 @@ function Base.haskey(ds::AbstractDataset, name::AbstractString)
     end
 end
 
+struct DataParams{D}
+    data::D
+end
+
+# https://github.com/JuliaIO/HDF5.jl/issues/1211 : option for faster iteration
+function Base.get(d::DataParams, param, default = nothing)
+    for p in d.data
+        p.mnemonic == param && return p
+    end
+    return default
+end
+
 file(ds::HDF5Dataset) = ds.file
 metadata(ds) = file(ds)["Metadata"]
-data_params(ds) = read(metadata(ds)["Data Parameters"])
+data_params(ds) = DataParams(read(metadata(ds)["Data Parameters"]))
+data_params(ds, name) = get(data_params(ds), uppercase(name))
 exp_params(ds) = read(metadata(ds)["Experiment Parameters"])
 function exp_notes(ds)
     notes = read(metadata(ds)["Experiment Notes"])
