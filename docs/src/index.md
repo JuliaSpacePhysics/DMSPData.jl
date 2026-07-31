@@ -81,6 +81,39 @@ times = gdalt.dims[1]
 make_lstar.(times, GDZ.(gdalt, gdlat, glon), ((; Kp = 40.0),); kext = "T89")
 ```
 
+## Caveats
+
+There are strange spikes in GLON (Geographic Longitude) values in files downloaded from Madrigal.
+
+```@example caveat
+using DMSPData
+using Dates
+using DimensionalData
+using CairoMakie, SpacePhysicsMakie
+
+t0 = DateTime("2010-01-10T1")
+t1 = DateTime("2010-01-10T3")
+
+ssj_ds = SSJ_Dataset(16, t0, t1)
+ds = DimStack(ssj_ds, ("gdlat", "glon", "gdalt"))
+tplot(ds)
+```
+
+There are inconsistencies between the calculated MLAT from the AACGM library and the stored MLAT values in the file.
+
+```@example caveat
+using SpaceDataModel: setmeta
+using GeoAACGM
+
+da = cat(ds.gdlat, ds.glon, ds.gdalt; dims=2)
+dmsp_calc_aacgm = geod2aacgm(da)
+dmsp_calc_mlat = setmeta(dmsp_calc_aacgm[:,1], :labels => "AACGM", :ylabel => "MLAT")
+dmsp_file = DimStack(ssj_ds, ("mlat", "mlt"))
+dmsp_file_mlat = setmeta(dmsp_file.mlat, :labels => "File", :ylabel => "MLAT")
+
+tplot([[dmsp_calc_mlat, dmsp_file_mlat],])
+```
+
 ## API
 
 ```@autodocs
