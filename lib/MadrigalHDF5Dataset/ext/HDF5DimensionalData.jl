@@ -9,7 +9,11 @@ name(v::HDF5Variable) = v.name
 _dict(d) = d
 _dict(nt::NamedTuple) = Dict(pairs(nt))
 
-function DimensionalData.DimStack(ds::MFDataset, params = keys(ds); data_params = NoMetadata())
+DimensionalData.DimStack(ds::MFDataset, params = keys(ds); kw...) = _dimstack(ds, params; kw...)
+# Disambiguates against DimensionalData's `DimStack(data, dims::Tuple; kw...)`.
+DimensionalData.DimStack(ds::MFDataset, params::Tuple; kw...) = _dimstack(ds, params; kw...)
+
+function _dimstack(ds::MFDataset, params; data_params = NoMetadata())
     _dims = (ds.dim[1], ds.dim[2])
     dims = (Ti(_dims[1]), Y(_dims[2]; metadata = get(data_params, name(_dims[2]), NoMetadata())))
     das = map(params) do param
