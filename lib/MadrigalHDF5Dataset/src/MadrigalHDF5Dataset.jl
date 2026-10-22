@@ -24,14 +24,7 @@ Base.setindex!(dataset::HDF5Variable, X, I...) = setindex!(dataset.data, X, I...
 
 @inline function Base.getproperty(var::HDF5Variable, name::Symbol)
     name in fieldnames(HDF5Variable) && return getfield(var, name)
-    return if name == :attrib
-        mnemonic = uppercase(var.name)
-        params = data_params(var.parentdataset)
-        # https://github.com/JuliaIO/HDF5.jl/issues/1211 : option for faster iteration
-        for p in params
-            p.mnemonic == mnemonic && return p
-        end
-    end
+    name == :attrib && return data_params(var.parentdataset, var.name)
 end
 
 include("hdf5dataset.jl")

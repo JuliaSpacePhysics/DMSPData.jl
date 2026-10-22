@@ -3,10 +3,6 @@
 [![DOI](https://zenodo.org/badge/1096784690.svg)](https://doi.org/10.5281/zenodo.17946429)
 [![version](https://juliahub.com/docs/General/DMSPData/stable/version.svg)](https://juliahub.com/ui/Packages/General/DMSPData)
 
-[![Build Status](https://github.com/JuliaSpacePhysics/DMSPData.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaSpacePhysics/DMSPData.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/JuliaSpacePhysics/DMSPData.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/JuliaSpacePhysics/DMSPData.jl)
-[![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
-
 Access and process [Defense Meteorological Satellite Program](https://www.wikipedia.org/wiki/Defense_Meteorological_Satellite_Program) data from the [Madrigal database](https://cedar.openmadrigal.org/).
 
 **Installation**: at the Julia REPL, run `using Pkg; Pkg.add("DMSPData")`
