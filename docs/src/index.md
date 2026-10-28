@@ -77,8 +77,8 @@ using IRBEM
 gdalt = DimArray(ssj_ds["gdalt"])
 gdlat = DimArray(ssj_ds["gdlat"])
 glon = DimArray(ssj_ds["glon"])
-times = gdalt.dims[1]
-make_lstar.(times, GDZ.(gdalt, gdlat, glon), ((; Kp = 40.0),); kext = "T89")
+times = collect(dims(gdalt, 1))
+make_lstar(times, (gdalt, gdlat, glon), (; Kp = 40.0); coord = "GDZ", kext = "T89")
 ```
 
 ## API
